@@ -1,0 +1,11 @@
+﻿{
+  "javascript": [
+
+    // controllers
+    "~/App_Plugins/uServer/dashboard/dashboard.controller.js",
+
+    // resources
+    "~/App_Plugins/uServer/resources/server.resource.js"
+  ]
+
+}

@@ -1,0 +1,27 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <uServerContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\uServer\**\*.*</uServerContentFilesPath>
+    </PropertyGroup>
+
+    <Target Name="CopyuServerAssets" BeforeTargets="Build">
+        <ItemGroup>
+            <uServerContentFiles Include="$(uServerContentFilesPath)" />
+        </ItemGroup>
+        <Message Text="Copying uServer files: $(uServerContentFilesPath) - #@(uServerContentFiles->Count()) files"  Importance="high" />
+        <Copy
+            SourceFiles="@(uServerContentFiles)"
+            DestinationFiles="@(uServerContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\uServer\%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true" />
+
+    </Target>
+
+    <Target Name="ClearuServerAssets" BeforeTargets="Clean">
+        <ItemGroup>
+            <uServerDir Include="$(MSBuildProjectDirectory)\App_Plugins\uServer\" />
+        </ItemGroup>
+        <Message Text="Clear old uServer data"  Importance="high" />
+        <RemoveDir Directories="@(uServerDir)"  />
+    </Target>
+
+</Project>

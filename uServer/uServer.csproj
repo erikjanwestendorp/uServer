@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <ContentTargetFolders>.</ContentTargetFolders>
+        <Product>uServer</Product>
+        <PackageId>uServer</PackageId>
+        <Title>uServer</Title>
+        <Description>...</Description>
+        <Product>...</Product>
+        <PackageTags>umbraco plugin package</PackageTags>
+        <RootNamespace>uServer</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Umbraco.Cms.Web.Website" Version="9.1.0" />
+        <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="App_Plugins\uServer\**\*.*">
+            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+            <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+        </Content>
+        <None Include="build\**\*.*">
+            <Pack>True</Pack>
+            <PackagePath>buildTransitive</PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="App_Plugins\uServer\dashboard\dashboard.controller.js" />
+      <None Remove="App_Plugins\uServer\dashboard\dashboard.html" />
+      <None Remove="App_Plugins\uServer\lang\en-US.xml" />
+      <None Remove="App_Plugins\uServer\resources\server.resource.js" />
+    </ItemGroup>
+</Project>

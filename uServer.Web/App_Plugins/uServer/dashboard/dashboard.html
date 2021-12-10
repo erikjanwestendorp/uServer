@@ -1,0 +1,50 @@
+﻿<div ng-controller="uServer.dashboard.controller as vm">
+
+    <div ng-show="vm.loading">
+        <umb-load-indicator></umb-load-indicator>
+    </div>
+
+    <umb-box ng-hide="vm.loading">
+        <table class="table table-hover" ng-if="!vm.loading">
+                <thead>
+                <tr>
+                    <th>Server Address</th>
+                    <th>Server Identity</th>
+                    <th>Active</th>
+                    <th>Scheduling Publisher</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="server in vm.servers" style="cursor: pointer;">
+                    <td>
+                        <span>{{ server.serverAddress }}</span>
+                    </td>
+                    <td>
+                        <span>{{ server.serverIdentity }}</span>
+                    </td>
+                    <td style="text-align: center">
+                        <umb-checkmark ng-if="server.isActive"
+                                       checked="server.isActive"
+                                       size="xs">
+                        </umb-checkmark>
+                    </td>
+                    <td style="text-align: center">
+                        <umb-checkmark ng-if="server.isSchedulingPublisher"
+                                       checked="server.isSchedulingPublisher"
+                                       size="xs">
+                        </umb-checkmark>
+                    </td>
+                    <!--<td style="text-align: right;">
+                        <umb-button ng-if="!server.isSchedulingPublisher"
+                                    type="button"
+                                    size="xxs"
+                                    button-style="danger"
+                                    label-key="general_delete">
+                        </umb-button>
+                    </td>-->
+                </tr>
+                </tbody>
+            </table>
+    </umb-box>
+</div>
+
