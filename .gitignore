@@ -24,3 +24,7 @@
 
 # Ignore the Models Builder models out of date flag
 **/App_Data/Models/ood.flag
+/uServer/bin/Debug/net5.0
+/uServer/obj
+/uServer/uServer.csproj.user
+/uServer.Web/umbraco/models/ood.flag
