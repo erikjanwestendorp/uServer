@@ -28,3 +28,6 @@
 /uServer/obj
 /uServer/uServer.csproj.user
 /uServer.Web/umbraco/models/ood.flag
+.vs/uServer/v16/.suo
+.vs/uServer/config/applicationhost.config
+.vs/uServer/DesignTimeBuild/.dtbcache.v2
