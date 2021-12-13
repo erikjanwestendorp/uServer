@@ -11,7 +11,6 @@
         return service;
 
         function getAll() {
-            console.log(Umbraco.Sys.ServerVariables);
             return $http.get(baseUrl + "GetAll").then(success, error);
 
             function success(result) {

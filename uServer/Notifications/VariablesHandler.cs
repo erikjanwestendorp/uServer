@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Reflection;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.Events;
@@ -15,6 +12,7 @@ using Umbraco.Cms.Web.BackOffice.Controllers;
 using Umbraco.Cms.Web.Common.Attributes;
 using Umbraco.Cms.Web.Common.Controllers;
 using Umbraco.Extensions;
+using uServer.Controllers.Backoffice;
 
 
 namespace uServer.Notifications
@@ -43,10 +41,10 @@ namespace uServer.Notifications
                 dictionary.Add(controller.Name.ToFirstLower(), _linkGenerator.GetUmbracoApiServiceBaseUrl(c =>controller.GetMethods().FirstOrDefault(), controller));
             }
 
-            //notification.ServerVariables.Add(ServerConstants.Package.Alias, new Dictionary<string, object>
-            //{
-            //    { ServerConstants.Api.Controllers.ServerController, _linkGenerator.GetUmbracoApiServiceBaseUrl<ServerController>(controller => controller.GetAll())}
-            //});
+            notification.ServerVariables.Add(ServerConstants.Package.Alias, new Dictionary<string, object>
+            {
+                { ServerConstants.Api.Controllers.ServerController, _linkGenerator.GetUmbracoApiServiceBaseUrl<ServerController>(controller => controller.GetAll())}
+            });
 
             notification.ServerVariables.Add("test",dictionary);
         }
