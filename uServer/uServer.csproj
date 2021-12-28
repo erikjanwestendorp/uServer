@@ -5,10 +5,15 @@
         <Product>uServer</Product>
         <PackageId>uServer</PackageId>
         <Title>uServer</Title>
-        <Description>...</Description>
-        <Product>...</Product>
-        <PackageTags>umbraco plugin package</PackageTags>
+        <Description>This Umbraco package provides an overview of all server registrations.</Description>
+        <Product>uServer</Product>
+        <PackageTags>umbraco plugin package server-registrations</PackageTags>
         <RootNamespace>uServer</RootNamespace>
+	    <Copyright>Copyright 2021</Copyright>
+	    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	    <PackageVersion>1.0.0-alpha</PackageVersion>
+	    <Version>$(PackageVersion)</Version>
+	    <PackageProjectUrl>https://github.com/erikjanwestendorp/userver</PackageProjectUrl>
     </PropertyGroup>
 
     <ItemGroup>
